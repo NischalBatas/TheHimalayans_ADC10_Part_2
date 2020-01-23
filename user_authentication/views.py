@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
+
 
 def view_signup_user(request):
     if request.method =="GET":
@@ -31,4 +32,10 @@ def view_restrict_page(request):
         return render(request,'restrict.html')
     else:
         return HttpResponse("Not login")
+
+def view_logout_user(request):
+    logout(request)
+    
+    return redirect('login')
+
 
