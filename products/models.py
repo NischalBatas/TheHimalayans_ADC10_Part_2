@@ -3,10 +3,16 @@ from django.db import models
 # Create your models here.
 
 class Product(models.Model):
-    product_image=models.ImageField(upload_to='images/')
+    product_image=models.ImageField(upload_to='images/',null=True)
     product_name=models.TextField()
     product_price=models.FloatField()
     product_category=models.TextField()
+
+    def valid_product(self):
+        return self.product_name!=""
+    
+    def valid_price(self):
+        return self.product_price>0
 
 class order(models.Model):
     order_id=models.TextField()
