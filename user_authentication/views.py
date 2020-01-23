@@ -17,6 +17,31 @@ def view_signup_user(request):
         user.save()
         return HttpResponse("Signup Successful!!")
 
+    #user permission
+    content_type = ContentType.objects.get_for_model(products)
+
+    #add permission
+    permission = Permission.objects.get(
+        codename='change_products',
+        content_type=content_type,
+    )
+    user.user_permissions.add(permission)
+
+    #update permission
+    permission = Permission.objects.get(
+        codename='change_products',
+        content_type=content_type,
+    )
+    user.user_permissions.add(permission)
+
+    #remove permission
+    permission = Permission.objects.get(
+        codename='change_products',
+        content_type=content_type,
+    )
+    user.user_permissions.add(permission)
+
+    
 def view_login_user(request):
     if request.method == "GET":
         return render(request,'registration/login.html')
