@@ -16,6 +16,9 @@ class order(models.Model):
 class transaction(models.Model):
     transaction_id=models.TextField()
     transaction_date=models.datetime()
-    products=models.ManyToManyField()
+    products=models.ManyToManyField(Product)
 
 class invoice(models.Model):
+    invoice_id=models.TextField()
+    invoice_details=models.TextField()
+    products=models.ForeignKey(Product)
