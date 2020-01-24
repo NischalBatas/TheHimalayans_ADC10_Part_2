@@ -14,17 +14,38 @@ class Product(models.Model):
     def valid_price(self):
         return self.product_price>0
 
-class order(models.Model):
+    def valid_category(self):
+        return self.product_category!=""
+
+class Order(models.Model):
     order_id=models.TextField()
-    order_name=models.DateField()
+    order_name=models.TextField()
     products=models.ForeignKey(Product,on_delete=models.DO_NOTHING)
 
-class transaction(models.Model):
+    def valid_id(self):
+        return self.order_id!=""
+
+    def valid_name(self):
+        return self.order_name!=""
+
+class Transaction(models.Model):
     transaction_id=models.TextField()
     transaction_date=models.DateField()
     products=models.ManyToManyField(Product)
 
-class invoice(models.Model):
+    def valid_Tid(self):
+        return self.transaction_id!=""
+
+    def valid_date(self):
+        return self.transaction_date!=""
+
+class Invoice(models.Model):
     invoice_id=models.TextField()
     invoice_details=models.TextField()
     products=models.ForeignKey(Product,on_delete=models.DO_NOTHING)
+
+    def valid_Invoice_id(self):
+        return self.invoice_id!=""
+
+    def valid_Invoice_details(self):
+        return self.invoice_details!=""

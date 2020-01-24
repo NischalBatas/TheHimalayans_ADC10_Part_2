@@ -27,7 +27,6 @@ def view_signup_user(request):
     user.user_permissions.add(permission)
 
 
-
     #remove permission
     permission = Permission.objects.get(
         codename='delete_product',
