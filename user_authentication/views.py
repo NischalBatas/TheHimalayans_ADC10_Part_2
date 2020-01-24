@@ -8,7 +8,6 @@ from products.models import Product
 # Create your views here.
 
 
-<<<<<<< HEAD
 def view_signup_user(request):
     if request.method =="GET":
         return render(request,'registration/signup.html')
@@ -16,10 +15,7 @@ def view_signup_user(request):
         print(request.POST)
         user= User.objects.create_user(username=request.POST['input_username'],password=request.POST['input_password'],email=request.POST['input_email'])
         user.save()
-<<<<<<< HEAD
-        return HttpResponse ("Signup Successful!!")
-=======
-=======
+
 
     #user permission
     content_type = ContentType.objects.get_for_model(Product)
@@ -41,9 +37,6 @@ def view_signup_user(request):
     return HttpResponse("Signup Successful!!")
 
 
->>>>>>> NischalBatas_TheHimalayans_PermissionAndModelsTesting
-
->>>>>>> AayushKarki_TheHimalayans_Login_LogOut
 
 
 
