@@ -12,7 +12,7 @@ def view_signup_user(request):
         print(request.POST)
         user= User.objects.create_user(username=request.POST['input_username'],password=request.POST['input_password'],email=request.POST['input_email'])
         user.save()
-        return HttpResponse("Signup Successful!!")
+        return HttpResponse ("Signup Successful!!")
 
 
 
