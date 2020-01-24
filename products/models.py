@@ -38,6 +38,9 @@ class Transaction(models.Model):
 
     def valid_date(self):
         return self.transaction_date!=""
+    
+  
+        
 
 class Invoice(models.Model):
     invoice_id=models.TextField()
@@ -49,3 +52,7 @@ class Invoice(models.Model):
 
     def valid_Invoice_details(self):
         return self.invoice_details!=""
+    
+    
+    
+

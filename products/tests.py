@@ -14,7 +14,7 @@ class ModelTestCase(TestCase):
 
     def test_valid_category(self):
         category1=Product(product_category="Mobile")
-        self.assertFalse(category1.valid_category(),)
+        self.assertTrue(category1.valid_category())
 
     #Order class testing
     def test_valid_id(self):
@@ -42,3 +42,5 @@ class ModelTestCase(TestCase):
     def test_valid_Invoice_details(self):
         details1=Invoice(invoice_details="The product details")
         self.assertEqual(details1.valid_Invoice_details(),True)
+
+    
