@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 
+<<<<<<< HEAD
 def view_signup_user(request):
     if request.method =="GET":
         return render(request,'registration/signup.html')
@@ -13,6 +14,9 @@ def view_signup_user(request):
         user= User.objects.create_user(username=request.POST['input_username'],password=request.POST['input_password'],email=request.POST['input_email'])
         user.save()
         return HttpResponse ("Signup Successful!!")
+=======
+
+>>>>>>> AayushKarki_TheHimalayans_Login_LogOut
 
 
 
