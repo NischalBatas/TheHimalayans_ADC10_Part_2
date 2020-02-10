@@ -29,12 +29,12 @@ def get_product(request, pk):
 @csrf_exempt
 def add_product(request):
     if request.method == "POST":
-        json_data = request.body.decode('utf-8')
-        new = json.loads(json_data)
+
+        new = json.loads(request.body)
         product_title = new['product_title']
-        product_description = new['product_title']
+        product_description = new['product_description']
         product_type = new['product_type']
-        product = product.objects.create(product_title=product_title, product_description = product_description, product_type = product_type)
+        product = Product.objects.create(product_title=product_title, product_description = product_description, product_type = product_type)
         try:
             product.save()
             return JsonResponse({"Success":"product has been added successfully!"})
