@@ -16,10 +16,10 @@ def product_data(request):
         return JsonResponse(dict)
  
 #Returns a specific data from the database
-def get_product(request, pk):
+def get_product(request,id):
     if request.method == "GET":
         try:
-            product = Product.objects.get(pk = pk)
+            product = Product.objects.get(id = id)
             response = json.dumps([{'ID':product.id, 'Title':product.product_title, 'Description': product.product_description, 'Type':product.product_type, 'Status':product.product_status}])
             return HttpResponse(response, content_type='text/json')
         except:
@@ -43,8 +43,8 @@ def add_product(request):
  
 #Helps to modify or remove a data from product database
 @csrf_exempt
-def update_api_data(request, pk):
-    product = Product.objects.get(pk=pk)
+def update_api_data(request, id):
+    product = Product.objects.get(id=id)
     if request.method == "GET":
         return JsonResponse({"ID":product.id,"product_title":product.product_title,"product_description":product.product_description,"product_type":product.product_type,"product_status":product.product_status})
     elif request.method == "PUT":
